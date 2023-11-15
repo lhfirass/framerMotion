@@ -2,11 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+let Xvariant = {
+  hover: {
+    scale: 1.1,
+    duration: 1,
+    textShadow: '0 0 8px rgb(255,255,255)',
+    boxShadow: '0 0 8px rgb(255,255,255)',
+    transition:{yoyo: Infinity}
+  }
+}
+
 const Toppings = ({ addTopping, pizza }) => {
   let toppings = ['mushrooms', 'peppers', 'onions', 'olives', 'extra cheese', 'tomatoes'];
 
   return (
-    <div className="toppings container">
+    <motion.div className="toppings container"
+      initial={{ x:'-100vw' }}
+      animate={{ x:0 }}
+      transition={{ type: 'spring', stiffness: 200 }}
+    >
       
       <h3>Step 2: Choose Toppings</h3>
       <ul>
@@ -40,7 +54,7 @@ const Toppings = ({ addTopping, pizza }) => {
         </motion.button>
       </Link>
 
-    </div>
+    </motion.div>
   )
 }
 
