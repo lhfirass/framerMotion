@@ -2,14 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+let XpageVariant = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 1.5,
+      duration: 1.5
+    }
+  },
+  exit: {
+    x: "-100vw",
+    transition: {ease: "easeInOut"}
+  }
+}
+
 const Base = ({ addBase, pizza }) => {
   const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];
 
   return (
     <motion.div className="base container"
-      initial={{ x:'-100vw' }}
-      animate={{ x:0 }}
-      transition={{ type: 'spring', stiffness: 200 }}
+        variants={XpageVariant}
+        initial= "hidden"
+        animate= "visible"
+        exit= "exit"
     >
 
       <h3>Step 1: Choose Your Base</h3>
