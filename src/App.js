@@ -6,7 +6,7 @@ import Base from './components/Base';
 import Toppings from './components/Toppings';
 import Order from './components/Order';
 import { AnimatePresence } from 'framer-motion';
-import Modal from './components/Modal';
+
 
 /*
   ! here where should i start my work, and first thing to take in mind is when adding Location from react-router-dom
@@ -22,7 +22,6 @@ function App() {
   let location = useLocation();
   const [pizza, setPizza] = useState({ base: "", toppings: [] });
   const [showModal, setshowModal] = useState(false);
-
 
   const addBase = (base) => {
     setPizza({ ...pizza, base })
@@ -41,7 +40,6 @@ function App() {
   return (
     <>
       <Header />
-      <Modal showModal={showModal} setshowModal={setshowModal}/>
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.key}>
           <Route path="/base">

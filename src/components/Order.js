@@ -1,22 +1,17 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import Modal from './Modal';
+
 
 const Order = ({ pizza, setshowModal }) => {
-
-  useEffect(() => {
-    setTimeout(() => {
-      setshowModal(false);
-    }, 5000)
-  }, [setshowModal])
 
   let [showTitle, setTitle] = useState(true);
   setTimeout (() => {
     setTitle(false);
   }, 4000)
   return (
-    <motion.div className="container order"
+    <>
+      <motion.div className="container order"
       initial={{ x:'-100vw' }}
       animate={{ x:0 }}
       transition={{ type: 'spring', stiffness: 200 }}
@@ -33,6 +28,7 @@ const Order = ({ pizza, setshowModal }) => {
       <p>You ordered a {pizza.base} pizza with:</p>
       {pizza.toppings.map(topping => <div key={topping}>{topping}</div>)}
     </motion.div>
+    </>
   ) 
 }
 
